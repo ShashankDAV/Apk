@@ -1,14 +1,19 @@
 from kivymd.app import MDApp
 from kivy.lang import Builder
 
-code = '''
-MDLabel:
-	text : "Hello!"
+class SampleApp(MDApp):
+    
+    def build(self):
+        self.appKv='''
+MDScreen:
+    MDLabel:
+        text:'Hello,World.'
+        multiline:True
+        color:"Blue"
+        halign:'center'         
 '''
+        AppScreen=Builder.load_string(self.appKv)
+        return AppScreen
 
-class MyApp(MDApp):	
-	def build(self):
-		return Builder.load_string(code)
-
-
-MyApp().run()
+SampleApp().run()
+    
